@@ -61,12 +61,11 @@ export default function Auth({ onSuccess }: Props) {
     }
   };
 
-  const handleProviderLogin = async (provider: 'google' | 'apple') => {
+  const handleProviderLogin = async (provider: 'google') => {
     setError('');
     setLoading(true);
     try {
       if (provider === 'google') await signInWithGoogle();
-      else await signInWithApple();
     } catch (err: any) {
       console.error(err);
       setError(err.message);
@@ -131,14 +130,6 @@ export default function Auth({ onSuccess }: Props) {
               >
                 <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" className="w-5 h-5" alt="" />
                 Continue with Google
-              </button>
-              <button 
-                onClick={() => handleProviderLogin('apple')} 
-                disabled={loading}
-                className="w-full bg-black text-white font-bold py-4 px-6 rounded-2xl border border-slate-800 hover:bg-slate-900 transition flex items-center justify-center gap-3 disabled:opacity-50"
-              >
-                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/apple.svg" className="w-5 h-5 invert" alt="" />
-                Continue with Apple
               </button>
             </div>
 

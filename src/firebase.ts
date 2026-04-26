@@ -19,10 +19,8 @@ export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
 export const auth = getAuth();
 
 export const googleProvider = new GoogleAuthProvider();
-export const appleProvider = new OAuthProvider('apple.com');
 
 export const signInWithGoogle = () => signInWithPopup(auth, googleProvider);
-export const signInWithApple = () => signInWithPopup(auth, appleProvider);
 export const signOut = () => fbSignOut(auth);
 
 export { 
